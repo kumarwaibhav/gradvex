@@ -14,8 +14,30 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'GradVex — Neural Network Visualizer',
-  description: 'Draw a digit. Watch a neural network think. Understand deep learning through real-time, interactive visualization.',
+  description: 'Draw a digit. Watch 109,386 parameters fire in real time. Understand deep learning through live, interactive visualization — no installation, runs entirely in your browser.',
   keywords: ['neural network', 'deep learning', 'MNIST', 'visualization', 'machine learning', 'education'],
+  metadataBase: new URL('https://gradvex.pages.dev'),
+  openGraph: {
+    title: 'GradVex — Neural Network Studio',
+    description: 'Draw a digit. Watch 109,386 parameters fire in real time. Free, browser-native neural network visualizer — no installation required.',
+    url: 'https://gradvex.pages.dev',
+    siteName: 'GradVex',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1024,
+        height: 1024,
+        alt: 'GradVex — Neural Network Studio',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GradVex — Neural Network Studio',
+    description: 'Draw a digit. Watch 109,386 parameters fire in real time.',
+    images: ['/logo.png'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
