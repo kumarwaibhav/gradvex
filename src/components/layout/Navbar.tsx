@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useUIStore } from '@/store/uiStore'
 import { motion } from 'framer-motion'
-import { Box, GitBranch, Moon, Sun } from 'lucide-react'
+import { GitBranch, Moon, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
 const NAV_LINKS = [
@@ -49,9 +50,27 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-3 sm:px-5">
         <Link href="/" className="flex min-w-0 items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border" style={{ borderColor: 'var(--gv-line)', background: 'var(--gv-cyan-soft)' }}>
-            <Box size={16} style={{ color: 'var(--gv-cyan)' }} />
-          </span>
+          <motion.div
+            className="relative flex h-8 w-8 shrink-0 items-center justify-center"
+            whileHover={{ scale: 1.12 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+          >
+            {/* Glow pulse behind logo */}
+            <motion.span
+              className="absolute inset-0 rounded-full"
+              style={{ background: 'radial-gradient(circle, rgba(155,255,254,0.35) 0%, transparent 70%)' }}
+              animate={{ opacity: [0.5, 1, 0.5], scale: [0.9, 1.1, 0.9] }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <Image
+              src="/logo.png"
+              alt="GradVex logo"
+              width={32}
+              height={32}
+              className="relative z-10 rounded-md object-contain"
+              priority
+            />
+          </motion.div>
           <span className="font-heading text-lg font-bold tracking-normal" style={{ color: 'var(--gv-text)' }}>
             GradVex
           </span>

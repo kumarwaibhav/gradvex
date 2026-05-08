@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, BrainCircuit, FlaskConical, FunctionSquare, Layers3, Sparkles } from 'lucide-react'
 import { NeuralHeroCanvas } from '@/components/hero/NeuralHeroCanvas'
 
@@ -70,9 +71,26 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="gv-container grid items-center gap-10 pb-16 pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:pt-24">
         <div>
-          <div className="gv-kicker mb-5">
-            <span className="gv-dot" />
-            Real-time neural network visualizer
+          <div className="mb-6 flex items-center gap-4">
+            <div className="relative flex h-16 w-16 shrink-0 items-center justify-center sm:h-20 sm:w-20">
+              {/* animated glow ring */}
+              <span
+                className="absolute inset-0 animate-pulse rounded-full"
+                style={{ background: 'radial-gradient(circle, rgba(155,255,254,0.3) 0%, transparent 70%)' }}
+              />
+              <Image
+                src="/logo.png"
+                alt="GradVex"
+                width={80}
+                height={80}
+                className="relative z-10 rounded-xl object-contain drop-shadow-[0_0_18px_rgba(155,255,254,0.55)]"
+                priority
+              />
+            </div>
+            <div className="gv-kicker">
+              <span className="gv-dot" />
+              Real-time neural network visualizer
+            </div>
           </div>
           <h1 className="gv-title max-w-3xl text-5xl sm:text-6xl lg:text-7xl">
             Learn neural networks by watching one think.

@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/logo.png" alt="GradVex Logo" width="120" height="120" />
+
 # GradVex
 
 **Neural Network Studio — Learn how AI thinks by watching it think.**
